@@ -1,1 +1,1 @@
-console.log("BISMILLAH BISA SSH KEYNYA !!!!!!!!");
+console.log("YEAY DAH BISA");

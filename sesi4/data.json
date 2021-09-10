@@ -29,15 +29,9 @@
   },
   {
     "id": 5,
-    "email": "charles.morris@reqres.in",
-    "first_name": "Charles",
-    "last_name": "Morris",
-    "avatar": "https://reqres.in/img/faces/5-image.jpg"
-  },
-  {
-    "id": 6,
-    "email": "charles.morris@reqres.in",
+    "email": "zhafira@yuhu.com",
     "first_name": "zhafira",
-    "last_name": "Morris"
+    "last_name": "hajar",
+    "avatar": "https://reqres.in/img/faces/5-image.jpg"
   }
 ]

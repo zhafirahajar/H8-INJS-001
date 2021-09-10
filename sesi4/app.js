@@ -98,19 +98,19 @@ app.patch("/users/edit/:id", (req, res) => {
 
 	if (check != undefined) {
 		const index = check.id - 1;
-		if (Object.keys(req.query).length != 0) {
+		if (Object.keys(req.body).length != 0) {
 			data[index].id = Number(req.params.id);
-
-			req.query.email != undefined
-				? (data[index].email = req.query.email)
+			console.log(req.body.email);
+			req.body.email != ""
+				? (data[index].email = req.body.email)
 				: (data[index].email = data[index].email);
 
-			req.query.depan != undefined
-				? (data[index].first_name = req.query.depan)
+			req.body.depan != ""
+				? (data[index].first_name = req.body.depan)
 				: (data[index].first_name = data[index].first_name);
 
-			req.query.belakang != undefined
-				? (data[index].last_name = req.query.belakang)
+			req.body.belakang != ""
+				? (data[index].last_name = req.body.belakang)
 				: (data[index].last_name = data[index].last_name);
 
 			res.send(`

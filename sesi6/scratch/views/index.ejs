@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+</head>
+<body>
+    <h1>User Management</h1>
+    <form action="/user/create">
+        <input type="submit" value="Create User" />
+    </form><br><br>
+    <form action="/">
+        <input type="text" placeholder="Find User by ID" name="id"/>
+        <input type="submit" value="Find" />
+    </form><br><br>
+    <br>
+    <br>
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Avatar</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <% userList.forEach(el => { %>
+            <tr>
+                <td><%= el.first_name %></td>
+                <td><%= el.last_name %></td>
+                <td><%= el.email %></td>
+                <td>
+                    <image src="<%= el.avatar %>" width="128px"></image>
+                </td>
+                <td>
+                    <a href="/user/edit/<%= el.id %>">Edit</a>
+                </td>
+                <td>
+                    <a href="/user/delete/<%= el.id %>">Delete</a>
+                </td>
+            </tr>
+        <% }) %>
+    </table>
+</body>
+</html>

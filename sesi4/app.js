@@ -79,7 +79,7 @@ app.post("/users", (req, res) => {
 });
 
 app.delete("/users/delete/:id", (req, res) => {
-	data.splice(req.params.id - 1);
+	data.splice(req.params.id - 1, 1);
 	fs.writeFileSync("data.json", JSON.stringify(data, null, 2));
 	console.log(data);
 

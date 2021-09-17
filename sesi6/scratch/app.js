@@ -28,6 +28,7 @@ app.get("/user/edit/:id", (req, res) => {
 });
 
 app.post("/user/editAction/:id", (req, res) => {
+	console.log("sebelum");
 	main.editUser(
 		req.params.id,
 		req.body.email,
@@ -35,6 +36,7 @@ app.post("/user/editAction/:id", (req, res) => {
 		req.body.last,
 		req.body.avatar
 	);
+	console.log("sesudah");
 	res.redirect("/");
 });
 

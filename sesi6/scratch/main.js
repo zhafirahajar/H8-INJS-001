@@ -29,30 +29,26 @@ const createUser = (email, first, last, avatar) => {
 const editUser = (id, email, first, last, avatar) => {
 	let check = getUser(id);
 	if (check != undefined) {
-		const index = check.id - 1;
-		if (arguments.length === 0) {
-		} else {
-			data[index].id = id;
+		const index = check[0].id - 1;
+		data[index].id = id;
 
-			email != ""
-				? (data[index].email = email)
-				: (data[index].email = data[index].email);
+		email != ""
+			? (data[index].email = email)
+			: (data[index].email = data[index].email);
 
-			first != ""
-				? (data[index].first_name = first)
-				: (data[index].first_name = data[index].first_name);
+		first != ""
+			? (data[index].first_name = first)
+			: (data[index].first_name = data[index].first_name);
 
-			last != ""
-				? (data[index].last_name = last)
-				: (data[index].last_name = data[index].last_name);
+		last != ""
+			? (data[index].last_name = last)
+			: (data[index].last_name = data[index].last_name);
 
-			avatar != ""
-				? (data[index].avatar = avatar)
-				: (data[index].avatar = data[index].avatar);
+		avatar != ""
+			? (data[index].avatar = avatar)
+			: (data[index].avatar = data[index].avatar);
 
-			fs.writeFileSync("data.json", JSON.stringify(data, null, 2));
-		}
-	} else {
+		fs.writeFileSync("data.json", JSON.stringify(data, null, 2));
 	}
 };
 

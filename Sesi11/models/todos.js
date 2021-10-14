@@ -6,6 +6,7 @@ class Todos {
 			if (err) {
 				res.json(err);
 			} else {
+				res.render("index", { project: "Belajar REST API Zhafira" });
 				res.status(201).json({
 					msg: "Sukses",
 					data: result.rows,

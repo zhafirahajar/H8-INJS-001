@@ -14,8 +14,19 @@ module.exports = (sequelize, DataTypes) => {
 	User.init(
 		{
 			name: DataTypes.STRING,
-			age: DataTypes.INTEGER,
+			//add validation at javacsript levels
+			age: {
+				type: DataTypes.INTEGER,
+				validate: {
+					min: {
+						args: 17,
+						msg: "Minimal berumur 17 tahun",
+					},
+					isInt: true,
+				},
+			},
 			major_id: DataTypes.INTEGER,
+			password: DataTypes.STRING,
 		},
 		{
 			sequelize,

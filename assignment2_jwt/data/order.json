@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "customer": 1,
+    "description": "belanjaan zhaf bulan januari"
+  },
+  {
+    "id": 2,
+    "customer": 2,
+    "description": "belanjaan hajar bulan desember"
+  }
+]

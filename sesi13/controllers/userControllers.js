@@ -2,35 +2,49 @@ const { User, Major } = require("../models");
 const bcrypt = require("bcrypt");
 
 class userController {
-	static getAll(req, res) {
+	static async getAll(req, res) {
 		console.log(req.headers.token);
-		User.findAll({
-			include: [Major],
-		})
-			.then((data) => {
-				res.json(data);
-			})
-			.catch((err) => {
-				console.log(err);
-			});
+		// User.findAll({
+		// 	include: [Major],
+		// })
+		// 	.then((data) => {
+		// 		res.json(data);
+		// 	})
+		// 	.catch((err) => {
+		// 		console.log(err);
+		// 	});
+
+		const userList = await User.findAll({ include: [Major] });
+		res.json(userList);
 	}
 
-	static getOne(req, res) {
-		User.findOne({
+	static async getOne(req, res) {
+		// User.findOne({
+		// 	where: {
+		// 		id: req.params.id,
+		// 	},
+		// })
+		// 	.then((data) => {
+		// 		if (data == null) {
+		// 			res.status(404).json(data);
+		// 		} else {
+		// 			res.status(200).json(data);
+		// 		}
+		// 	})
+		// 	.catch((err) => {
+		// 		res.status(500).json(err);
+		// 	});
+
+		const oneUser = await User.findOne({
 			where: {
 				id: req.params.id,
 			},
-		})
-			.then((data) => {
-				if (data == null) {
-					res.status(404).json(data);
-				} else {
-					res.status(200).json(data);
-				}
-			})
-			.catch((err) => {
-				res.status(500).json(err);
-			});
+		});
+		if (oneUser == null) {
+			res.status(404).json({ message: "User Not Found" });
+		} else {
+			res.status(200).json(oneUser);
+		}
 	}
 
 	static create(req, res) {
@@ -40,7 +54,7 @@ class userController {
 			name: req.body.name,
 			age: req.body.age,
 			major_id: req.body.major_id,
-			password: hash, //bcyript
+			password: hash, //bcrypt
 		};
 		User.create(input)
 			.then((data) => {

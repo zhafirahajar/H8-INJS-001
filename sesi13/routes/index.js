@@ -10,6 +10,8 @@ route.get("/", (req, res) => {
 	});
 });
 
+route.post("/users", userController.create);
+
 route.post("/login", (req, res) => {
 	User.findOne({
 		where: {
@@ -46,7 +48,6 @@ route.use((req, res, next) => {
 		})
 			.then((data) => {
 				if (data !== null) {
-					console.log("masuk if");
 					next();
 				} else {
 					res.status(401).json({ messege: "Invalid Credentials" });
@@ -62,8 +63,6 @@ route.use((req, res, next) => {
 });
 
 route.get("/users", userController.getAll);
-
-route.post("/users", userController.create);
 
 route.get("/users/:id", userController.getOne);
 

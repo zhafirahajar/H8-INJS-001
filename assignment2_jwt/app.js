@@ -12,6 +12,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(route);
 
 //listen
-app.listen(port, (req, res) => {
-	console.log("listening on port ", port);
-});
+// app.listen(port, (req, res) => {
+// 	console.log("listening on port ", port);
+// });
+
+module.exports = app;
